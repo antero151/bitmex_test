@@ -12,8 +12,8 @@ REST API
 ---
 `/api/accounts/` - CRUD endpoint for Account model
 `/api/<account_name>/orders/` - endpoint for maintaining Orders 
----
 
+---
 WEBSOCKET
 ---
 Go to `http://localhost:8000/` and open `developer tools` on your browser, after go to `console`
