@@ -11,6 +11,7 @@ Clone repo
 REST API
 ---
 `/api/accounts/` - CRUD endpoint for Account model
+
 `/api/<account_name>/orders/` - endpoint for maintaining Orders 
 
 ---
