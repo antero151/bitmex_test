@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const chatSocket = new WebSocket(
+        'ws://'
+        + window.location.host
+        + '/ws/bitmex/'
+    );
+    chatSocket.onopen = function (e) {
+        console.log(e)
+    }
+    chatSocket.onmessage = function (e) {
+        const data = JSON.parse(e.data);
+        console.log(data.message);
+    };
+
+    chatSocket.onclose = function (e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+
+    function send_subscribe() {
+        chatSocket.send(JSON.stringify({
+            'action': "subscribe",
+            'account': '492eb806-81fc-4360-9a9e-5c83bf204fb5'
+        }));
+    }
+
+    function send_unsubscribe() {
+        chatSocket.send(JSON.stringify({
+            'action': "unsubscribe",
+            'account': '492eb806-81fc-4360-9a9e-5c83bf204fb5'
+        }));
+    }
+
+</script>
+
+</body>
+</html>
