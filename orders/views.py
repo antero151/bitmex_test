@@ -57,8 +57,6 @@ class OrdersViewSet(MultiSerializerViewSet):
         else:
             instance.status = STATUS_CLOSED
         instance.save()
-
-        print(instance, _status)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
