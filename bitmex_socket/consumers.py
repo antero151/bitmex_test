@@ -1,7 +1,7 @@
 import asyncio
 
 from channels.db import database_sync_to_async
-from channels.exceptions import DenyConnection
+from channels.exceptions import DenyConnection, StopConsumer
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
 from django.core.exceptions import ValidationError
 
@@ -28,6 +28,7 @@ class BitmexConsumer(AsyncJsonWebsocketConsumer):
             self.bitmex_instrument_group,
             self.channel_name
         )
+        raise StopConsumer()
 
     async def receive_json(self, content, **kwargs):
         # Send message to room group
